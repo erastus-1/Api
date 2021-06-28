@@ -9,7 +9,7 @@ from .serializers import *
 
 #create your views here.
 class RegistrationApiView(generics.CreateAPIView):
-    permission_classes = (AllowAny)
+    permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
 
     def post(self, request):
@@ -31,7 +31,7 @@ class RegistrationApiView(generics.CreateAPIView):
 
 class LoginApiView(generics.CreateAPIView):
     serializer_class = LoginSerializer
-    permission_classes = (AllowAny)
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -54,7 +54,7 @@ class LoginApiView(generics.CreateAPIView):
             return Response(response, status=status_code)
 
 class ProfileApiView(RetrieveAPIView):
-    permission_classes = (IsAuthenticated)
+    permission_classes = [AllowAny]
     serializer_class = ProfileSerializer
 
     def get_queryset(self):
@@ -65,7 +65,7 @@ class ProfileApiView(RetrieveAPIView):
             return profile
         except Exception:
 
-            raise NotFound('profiles not there')
+            raise ('profile not there')
 
     def retrieve(self, request, **kwargs):
         data = self.get_queryset()
@@ -76,7 +76,7 @@ class ProfileApiView(RetrieveAPIView):
                         status=status.HTTP_200_OK)
 
 class UpdateProfileView(UpdateAPIView):
-    permission_classes = (IsAuthenticated)
+    permission_classes = [AllowAny]
     serializer_class = UpdateProfileSerializer
     queryset = Profile.objects.all()
 
