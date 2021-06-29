@@ -46,7 +46,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True, default="default-username")
     email = models.EmailField(db_index=True, unique=True)
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
