@@ -92,6 +92,8 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'Apis.User'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 
