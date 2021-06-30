@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Apis',
+    'articles',
     'bootstrap4',
     'drf_yasg',
     'rest_framework',
